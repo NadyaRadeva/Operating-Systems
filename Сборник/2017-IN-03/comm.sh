@@ -1,0 +1,1 @@
+s0600454@astero:~$ cat /etc/passwd | \ grep -E ' [^ ]*а[,]' | \ awk -F: '{print $1}' | \ grep -E '^s[0-9]+' | \ sed 's/^s//' | \ cut -c2-3 | \ sort | uniq -c | sort -nr | head -n 1 | awk '{print $1, $2}'  
