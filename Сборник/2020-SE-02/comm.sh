@@ -1,0 +1,1 @@
+s0600454@astero:~$ site=$(cat spacex.txt | tail -n +2 | awk -F'|' '$3=="Failure" {fail[$2]++} END {for (s in fail) print fail[s], s}' | sort -nr | head -n1 | awk '{print $2}') cat spacex.txt | tail -n +2 | awk -F'|' -v s="$site" '$2==s' | sort -t'|' -k1 -nr | head -n1 | awk -F'|' '{print $3 ":" $4}'
